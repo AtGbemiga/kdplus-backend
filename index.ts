@@ -8,6 +8,7 @@ import { errorHandler } from "./lib/error";
 
 const app = express();
 const server = http.createServer(app);
+app.set("trust proxy", 1); // Trust the first proxy
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,

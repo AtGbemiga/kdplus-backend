@@ -1,11 +1,10 @@
+import { QueryCommand } from "@aws-sdk/client-dynamodb";
 import express, { NextFunction, Request, Response } from "express";
+import { dynamoDB } from "../../../db/dal";
 import { AppError } from "../../../lib/error";
-import { GetCommand } from "@aws-sdk/lib-dynamodb";
 import { comparePassword } from "../../../middleware/bcrypt/bcryptUtils";
 import { jwtGenerateToken } from "../../../middleware/jwt/jwt";
 import { setToken } from "../../../middleware/jwt/setToken";
-import { AttributeValue, QueryCommand } from "@aws-sdk/client-dynamodb";
-import { dynamoDB } from "../../../db/dal";
 
 interface BodyProps {
   email: string;
@@ -17,24 +16,22 @@ export const loginUserViaEmail: express.RequestHandler = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { email, password }: { email: string; password: string } = req.body;
+  const { email, password }: BodyProps = req.body;
 
   if (!email || !password) {
     return next(
       new AppError("Invalid input", 400, "Missing required fields", true)
     );
   }
-
+  const queryParams = {
+    TableName: "Users",
+    KeyConditionExpression: "email = :email AND acc_type = :acc_type",
+    ExpressionAttributeValues: {
+      ":email": { S: email }, // Use AttributeValue type
+      ":acc_type": { S: "email" }, // Use AttributeValue type
+    },
+  };
   try {
-    const queryParams = {
-      TableName: "Users",
-      KeyConditionExpression: "email = :email AND acc_type = :acc_type",
-      ExpressionAttributeValues: {
-        ":email": { S: email }, // Use AttributeValue type
-        ":acc_type": { S: "email" }, // Use AttributeValue type
-      },
-    };
-
     const data = await dynamoDB.send(new QueryCommand(queryParams));
 
     if (!data.Items || data.Items.length === 0) {
