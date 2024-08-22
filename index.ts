@@ -24,12 +24,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(limiter);
 
 import userRouter from "./auth/users/domain/routes";
+import payStackRouter from "./payment/paystack/domain/routes";
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello World!");
 });
 
 app.use("/api/v1/users", userRouter);
+app.use("/api/v1/paystack", payStackRouter);
 
 app.use(errorHandler);
 
