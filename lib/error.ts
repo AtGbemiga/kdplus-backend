@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from "express";
+import logger from "./logger/winston";
 
 export enum HttpCode {
   OK = 200,
@@ -41,7 +42,16 @@ export const errorHandler = (
   res: Response,
   next: NextFunction
 ) => {
-  console.error(err);
+  // console.error(err);
+  // Log the error using Winston
+  logger.error(`${err.name}: ${err.message}`, {
+    httpCode: err.httpCode,
+    stack: err.stack,
+    isOperational: err.isOperational,
+    timestamp: new Date().toISOString(),
+    route: req.originalUrl,
+    method: req.method,
+  });
 
   res.status(err.httpCode).json({
     status: "error",

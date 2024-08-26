@@ -25,6 +25,7 @@ app.use(limiter);
 
 import userRouter from "./auth/users/domain/routes";
 import payStackRouter from "./payment/paystack/domain/routes";
+import logger from "./lib/logger/winston";
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello World!");
@@ -36,20 +37,15 @@ app.use("/api/v1/paystack", payStackRouter);
 app.use(errorHandler);
 
 // process.on("unhandledRejection", (reason, p) => {
-//   // I just caught an unhandled promise rejection,
-//   console.error("err0");
-//   // since we already have fallback handler for unhandled errors (see below),
-//   // let throw and let him handle that
+//   logger.error("Unhandled Rejection:", reason);
 //   throw reason;
 // });
 
 // process.on("uncaughtException", (error) => {
-//   console.error("Uncaught Exception:", error);
+//   logger.error("Uncaught Exception:", error);
 
-//   // Here, you should directly use the errorHandler function or call your own method
-//   // For example, log the error or handle it in some way
 //   if (!errorHandler.isTrustedError(error)) {
-//     console.error("Exiting due to untrusted error.");
+//     logger.error("Exiting due to untrusted error.");
 //     process.exit(1);
 //   }
 // });
