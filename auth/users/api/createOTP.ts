@@ -7,6 +7,7 @@ import {
   generateSalt,
   hashPassword,
 } from "../../../middleware/bcrypt/bcryptUtils";
+import { THIRTYMINUTES } from "../../../lib/constants/dates";
 
 interface BodyProps {
   username: string;
@@ -56,7 +57,7 @@ export const createOTP: express.RequestHandler = async (
         code: randomNumbers,
         timestamp: Date.now(),
         verified: false,
-        ttl: Date.now() + 30 * 60 * 1000, // time to live: 30 minutes
+        ttl: THIRTYMINUTES, // time to live: 30 minutes
       },
     };
 

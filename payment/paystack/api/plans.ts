@@ -1,14 +1,19 @@
 import { Request, Response } from "express";
 import * as https from "https"; // Import https module
 import * as http from "http";
+import { BASEURL } from "../../../lib/constants/severURL";
 
 export const oneMonth = (req: Request, res: Response): void => {
   const params = JSON.stringify({
     email: req.query.email,
     amount: req.query.amount,
     plan: "PLN_paegmb6whxr8fp3",
-    callback_url:
-      "https://wealthy-reliably-hare.ngrok-free.app/api/v1/paystack/callbackurl",
+    metadata: {
+      userPlan: "basic",
+      accType: req.query.accType,
+      cancel_action: `${BASEURL}/paystack/cancelurl`,
+    },
+    callback_url: `${BASEURL}/paystack/callbackx`,
   });
 
   const options = {

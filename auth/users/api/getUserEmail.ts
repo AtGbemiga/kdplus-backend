@@ -39,15 +39,13 @@ export const getUserEmail: express.RequestHandler = async (
   try {
     const email = decodeUserEmail(req, null, next);
 
-    // This check is unnecessary since decodeUserEmail throws an error if the token is invalid
-    // But it won't hurt to keep it for clarity
     if (!email) {
       return next(new AppError("Unauthorized", 401, "No token provided", true));
     }
 
-    return res.status(200).json({ email });
+    // any req to this endpoint is from accType email
+    return res.status(200).json({ email, accType: "email" });
   } catch (error) {
-    // Any errors will be caught here and passed to the next middleware
     return next(
       new AppError(
         "Internal server error",

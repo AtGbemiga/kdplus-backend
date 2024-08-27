@@ -47,8 +47,8 @@ export interface Customer {
 
 // added. Check for typeof data.metadata incase of err
 export interface Metadata {
-  senderID: string;
-  recipientID: string;
+  userPlan?: string;
+  accType?: string;
 }
 
 export interface Data {
