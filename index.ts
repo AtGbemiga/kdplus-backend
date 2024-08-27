@@ -25,13 +25,16 @@ app.use(express.urlencoded({ extended: true }));
 
 import userRouter from "./auth/users/domain/routes";
 import payStackRouter from "./payment/paystack/domain/routes";
+import planRouter from "./plans/domain/routes";
+import { APIVERSION } from "./lib/constants/apiVersion";
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello World!");
 });
 
-app.use("/api/v1/users", userRouter);
-app.use("/api/v1/paystack", payStackRouter);
+app.use(`${APIVERSION}/users`, userRouter);
+app.use(`${APIVERSION}/paystack`, payStackRouter);
+app.use(`${APIVERSION}/plans`, planRouter);
 
 app.use(errorHandler);
 

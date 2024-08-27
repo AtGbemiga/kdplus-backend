@@ -54,7 +54,7 @@ export const callback = async (
           "set userPlan = :userPlan, expiresIn = :expiresIn, referenceID = :referenceID",
         ExpressionAttributeValues: {
           ":userPlan": userPlan,
-          ":expiresIn": THIRTYDAYS.toString(),
+          ":expiresIn": THIRTYDAYS,
           ":referenceID": referenceID,
         },
         ReturnValues: ReturnValue.UPDATED_NEW,
@@ -75,12 +75,11 @@ export const callback = async (
       );
     }
   } catch (error) {
-    console.error("Error processing payment callback:", error);
     return next(
       new AppError(
-        "Error processing payment callback",
+        "Internal server error",
         500,
-        "Server Error",
+        (error as Error).message + " Please try again later",
         true
       )
     );

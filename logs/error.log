@@ -2,3 +2,10 @@
 2024-08-26T19:39:15.947Z [error]: Error processing payment callback: Server Error
 2024-08-26T19:43:13.098Z [error]: Error processing payment callback: Server Error
 2024-08-26T19:45:12.742Z [error]: Error processing payment callback: Server Error
+2024-08-27T17:25:50.912Z [error]: Internal server error: No token provided Please try again later
+2024-08-27T17:32:35.752Z [error]: Forbidden: No active plan found
+2024-08-27T17:48:32.502Z [error]: Expired: User plan has expired
+2024-08-27T18:36:10.575Z [error]: Expired: User plan has expired
+2024-08-27T18:41:20.302Z [error]: Invalid or expired OTP: Unauthorized
+2024-08-27T18:41:36.071Z [error]: Invalid or expired OTP: Unauthorized
+2024-08-27T18:55:27.011Z [error]: Invalid or expired OTP: Unauthorized

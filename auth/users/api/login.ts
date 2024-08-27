@@ -64,18 +64,18 @@ export const loginUserViaEmail: express.RequestHandler = async (
       }
 
       const token = jwtGenerateToken(email);
+      console.log(token);
 
       setToken(req, res, token);
 
       res.status(200).json({ message: "Login successful", token });
     });
   } catch (error) {
-    console.error(error);
     return next(
       new AppError(
-        "Internal Server Error",
+        "Internal server error",
         500,
-        "Failed to retrieve user data",
+        (error as Error).message + " Please try again later",
         true
       )
     );

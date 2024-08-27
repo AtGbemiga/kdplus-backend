@@ -8,7 +8,10 @@ import {
 } from "../../../middleware/bcrypt/bcryptUtils";
 import { jwtGenerateToken } from "../../../middleware/jwt/jwt";
 import { setToken } from "../../../middleware/jwt/setToken";
-import { THIRTYMINUTES } from "../../../lib/constants/dates";
+import {
+  MINUSTHIRTYMINUTES,
+  PLUSTHIRTYMINUTES,
+} from "../../../lib/constants/dates";
 
 interface BodyProps {
   code: string;
@@ -29,7 +32,8 @@ export const verifyOTP: express.RequestHandler = async (
     return next(new AppError("Unauthorized", 401, "Invalid input", true));
   }
 
-  const thirtyMinutesAgo = THIRTYMINUTES; // Get the timestamp for 30 minutes ago
+  // compare the timestamp in the DB with the current timestamp, if the difference between them is greater than 30 minutes, then the OTP is invalid
+  const thirtyMinutesAgo = MINUSTHIRTYMINUTES; // Get the timestamp for 30 minutes ago
 
   // check if the valid credentials exist in the OTPs table
   const queryParams = {
