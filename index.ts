@@ -26,6 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 import userRouter from "./auth/users/domain/routes";
 import payStackRouter from "./payment/paystack/domain/routes";
 import planRouter from "./plans/domain/routes";
+import videoRouter from "./videos/domain/routes";
 import { APIVERSION } from "./lib/constants/apiVersion";
 
 app.get("/", (req: Request, res: Response) => {
@@ -35,6 +36,7 @@ app.get("/", (req: Request, res: Response) => {
 app.use(`${APIVERSION}/users`, userRouter);
 app.use(`${APIVERSION}/paystack`, payStackRouter);
 app.use(`${APIVERSION}/plans`, planRouter);
+app.use(`${APIVERSION}/videos`, videoRouter);
 
 app.use(errorHandler);
 
