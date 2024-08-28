@@ -23,6 +23,13 @@ interface MulterRequest extends Request {
   };
 }
 
+interface BodyProps {
+  category: string;
+  title: string;
+  description: string;
+  cast: string;
+}
+
 export const uploadVideo: express.RequestHandler = async (
   req: Request,
   res: Response,
@@ -39,16 +46,13 @@ export const uploadVideo: express.RequestHandler = async (
       const videoFile = multerReq.files?.video?.[0];
       const posterFile = multerReq.files?.poster?.[0];
       const trailerFile = multerReq.files?.trailer?.[0];
-      const { category }: { category: string } = req.body;
+      const { category, title, description, cast }: BodyProps = req.body;
 
-      if (!videoFile || !posterFile) {
+      console.log({ cast });
+
+      if (!videoFile || !posterFile || !title || !description || !cast) {
         return next(
-          new AppError(
-            "Video and poster files are required",
-            400,
-            "Upload files",
-            true
-          )
+          new AppError("Client error", 400, "Missing required fields", true)
         );
       }
 
@@ -95,12 +99,28 @@ export const uploadVideo: express.RequestHandler = async (
       await Promise.all(uploadPromises);
 
       // Store metadata in DynamoDB
+
+      let castArray: string[] = [];
+      if (cast) {
+        // Remove surrounding quotes and convert the string to an array
+        castArray = JSON.parse(cast.replace(/'/g, '"'));
+      }
+
+      if (!Array.isArray(castArray) || !castArray.length) {
+        return next(
+          new AppError("Client error", 400, "Cast members are required", true)
+        );
+      }
+
       const dynamoDBParams = {
         TableName: "Videos",
         Item: {
           videoId: videoId.toString(),
           videoS3Key: videoKey,
           category: category || "uncategorized",
+          title,
+          description,
+          cast: castArray.map((member: string) => member),
           posterImageS3Key: posterKey,
           ...(trailerKey && { trailerS3Key: trailerKey }),
         },
@@ -111,7 +131,6 @@ export const uploadVideo: express.RequestHandler = async (
       res.status(200).json({
         status: "success",
         message: "Video and associated files uploaded successfully",
-        videoId,
       });
     } catch (error) {
       return next(
