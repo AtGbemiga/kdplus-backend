@@ -11,3 +11,5 @@
 2024-08-27T18:55:27.011Z [error]: Invalid or expired OTP: Unauthorized
 2024-08-28T15:13:49.086Z [error]: Internal server error: Could not load credentials from any providers Please try again later
 2024-08-28T15:34:52.579Z [error]: No file uploaded: Upload a file
+2024-08-28T16:16:48.680Z [error]: Internal server error: Invalid attribute value type Please try again later
+2024-08-28T16:24:23.106Z [error]: Internal server error: One or more parameter values were invalid: Type mismatch for key Please try again later
