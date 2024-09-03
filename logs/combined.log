@@ -13,3 +13,26 @@
 2024-08-28T15:34:52.579Z [error]: No file uploaded: Upload a file
 2024-08-28T16:16:48.680Z [error]: Internal server error: Invalid attribute value type Please try again later
 2024-08-28T16:24:23.106Z [error]: Internal server error: One or more parameter values were invalid: Type mismatch for key Please try again later
+2024-08-28T16:56:12.256Z [error]: Internal server error: cast.map is not a function Please try again later
+2024-08-28T17:00:07.772Z [error]: Internal server error: cast.map is not a function Please try again later
+2024-08-28T17:00:42.505Z [error]: Internal server error: cast.map is not a function Please try again later
+2024-08-28T17:01:16.186Z [error]: Internal server error: cast.map is not a function Please try again later
+2024-08-28T17:10:08.360Z [error]: Internal server error: cast.map is not a function Please try again later
+2024-08-28T17:14:01.258Z [error]: Internal server error: cast.map is not a function Please try again later
+2024-08-28T18:46:41.871Z [error]: Internal server error: Pass options.removeUndefinedValues=true to remove undefined values from map/array/set. Please try again later
+2024-08-28T19:30:02.105Z [error]: Client error: Missing required fields
+2024-08-28T19:45:14.381Z [error]: Internal server error: Invalid FilterExpression: Incorrect operand type for operator or function; operator or function: begins_with, operand type: M Please try again later
+2024-08-29T17:48:31.828Z [error]: Internal server error: The bucket you are attempting to access must be addressed using the specified endpoint. Please send all future requests to this endpoint. Please try again later
+2024-09-02T15:47:20.269Z [error]: Internal server error: jwt malformed Please try again later
+2024-09-02T15:47:21.278Z [error]: Internal server error: jwt malformed Please try again later
+2024-09-02T15:47:21.914Z [error]: Internal server error: jwt malformed Please try again later
+2024-09-02T15:52:24.106Z [error]: Internal server error: jwt malformed Please try again later
+2024-09-02T15:52:24.826Z [error]: Internal server error: jwt malformed Please try again later
+2024-09-02T15:52:25.936Z [error]: Internal server error: jwt malformed Please try again later
+2024-09-02T15:57:49.981Z [error]: Invalid credentials: Invalid credentials
+2024-09-02T15:59:13.849Z [error]: Invalid credentials: Invalid credentials
+2024-09-02T16:12:27.907Z [error]: Not Found: No user found
+2024-09-02T16:12:28.899Z [error]: Not Found: No user found
+2024-09-03T16:50:42.870Z [error]: Unauthorized: No token provided
+2024-09-03T17:20:09.852Z [error]: Internal server error: The table does not have the specified index: CategoryIndex Please try again later
+2024-09-03T17:51:25.972Z [error]: Unauthorized: No token provided

@@ -27,7 +27,7 @@ interface BodyProps {
   category: string;
   title: string;
   description: string;
-  cast: string;
+  // cast: string;
 }
 
 export const uploadVideo: express.RequestHandler = async (
@@ -46,11 +46,11 @@ export const uploadVideo: express.RequestHandler = async (
       const videoFile = multerReq.files?.video?.[0];
       const posterFile = multerReq.files?.poster?.[0];
       const trailerFile = multerReq.files?.trailer?.[0];
-      const { category, title, description, cast }: BodyProps = req.body;
+      const { category, title, description }: BodyProps = req.body;
 
-      console.log({ cast });
+      // console.log({ cast });
 
-      if (!videoFile || !posterFile || !title || !description || !cast) {
+      if (!videoFile || !posterFile || !title || !description) {
         return next(
           new AppError("Client error", 400, "Missing required fields", true)
         );
@@ -100,17 +100,17 @@ export const uploadVideo: express.RequestHandler = async (
 
       // Store metadata in DynamoDB
 
-      let castArray: string[] = [];
-      if (cast) {
-        // Remove surrounding quotes and convert the string to an array
-        castArray = JSON.parse(cast.replace(/'/g, '"'));
-      }
+      // let castArray: string[] = [];
+      // if (cast) {
+      //   // Remove surrounding quotes and convert the string to an array
+      //   castArray = JSON.parse(cast.replace(/'/g, '"'));
+      // }
 
-      if (!Array.isArray(castArray) || !castArray.length) {
-        return next(
-          new AppError("Client error", 400, "Cast members are required", true)
-        );
-      }
+      // if (!Array.isArray(castArray) || !castArray.length) {
+      //   return next(
+      //     new AppError("Client error", 400, "Cast members are required", true)
+      //   );
+      // }
 
       const dynamoDBParams = {
         TableName: "Videos",
@@ -120,7 +120,7 @@ export const uploadVideo: express.RequestHandler = async (
           category: category || "uncategorized",
           title,
           description,
-          cast: castArray.map((member: string) => member),
+          // cast: castArray.map((member: string) => member),
           posterImageS3Key: posterKey,
           ...(trailerKey && { trailerS3Key: trailerKey }),
         },
