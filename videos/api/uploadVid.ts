@@ -2,20 +2,9 @@ import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import { PutCommand } from "@aws-sdk/lib-dynamodb";
 import express, { NextFunction, Request, Response } from "express";
 import multer from "multer";
-import { dynamoDB } from "../../db/dal";
+import { dynamoDB, s3 } from "../../db/dal";
 import { AppError } from "../../lib/error";
-
-const s3 = new S3Client({
-  region: "us-east-1",
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID as string,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY as string,
-  },
-});
-
-const upload = multer({
-  storage: multer.memoryStorage(),
-});
+import { upload } from "../../lib/multer/upload";
 
 interface MulterRequest extends Request {
   files: {
@@ -27,7 +16,6 @@ interface BodyProps {
   category: string;
   title: string;
   description: string;
-  // cast: string;
 }
 
 export const uploadVideo: express.RequestHandler = async (
@@ -47,8 +35,6 @@ export const uploadVideo: express.RequestHandler = async (
       const posterFile = multerReq.files?.poster?.[0];
       const trailerFile = multerReq.files?.trailer?.[0];
       const { category, title, description }: BodyProps = req.body;
-
-      // console.log({ cast });
 
       if (!videoFile || !posterFile || !title || !description) {
         return next(
@@ -100,18 +86,6 @@ export const uploadVideo: express.RequestHandler = async (
 
       // Store metadata in DynamoDB
 
-      // let castArray: string[] = [];
-      // if (cast) {
-      //   // Remove surrounding quotes and convert the string to an array
-      //   castArray = JSON.parse(cast.replace(/'/g, '"'));
-      // }
-
-      // if (!Array.isArray(castArray) || !castArray.length) {
-      //   return next(
-      //     new AppError("Client error", 400, "Cast members are required", true)
-      //   );
-      // }
-
       const dynamoDBParams = {
         TableName: "Videos",
         Item: {
@@ -120,7 +94,6 @@ export const uploadVideo: express.RequestHandler = async (
           category: category || "uncategorized",
           title,
           description,
-          // cast: castArray.map((member: string) => member),
           posterImageS3Key: posterKey,
           ...(trailerKey && { trailerS3Key: trailerKey }),
         },
