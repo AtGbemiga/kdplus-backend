@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from "express";
 import { AppError } from "../../lib/error";
 import { QueryCommand } from "@aws-sdk/lib-dynamodb";
 import { dynamoDB } from "../../db/dal";
+import { bucketUrl } from "../../utils/constants/s3url";
 export const vidsByCategory: express.RequestHandler = async (
   req: Request,
   res: Response,
@@ -37,8 +38,6 @@ export const vidsByCategory: express.RequestHandler = async (
     if (!data.Items || data.Items.length === 0) {
       return next(new AppError("Not Found", 404, "No videos found", true));
     }
-
-    const bucketUrl = `https://${process.env.AWS_BUCKET}.s3.amazonaws.com/`;
 
     // Map over Items to include the full URL for posterImageS3Key
     const updatedItems = data.Items.map((item) => ({

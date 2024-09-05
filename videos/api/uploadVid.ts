@@ -18,6 +18,8 @@ interface BodyProps {
   description: string;
 }
 
+// TODO: replace spaces in the file name with '-'
+
 export const uploadVideo: express.RequestHandler = async (
   req: Request,
   res: Response,

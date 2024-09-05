@@ -5,9 +5,9 @@ import { AppError } from "../../../lib/error";
 import {
   generateSalt,
   hashPassword,
-} from "../../../middleware/bcrypt/bcryptUtils";
-import { jwtGenerateToken } from "../../../middleware/jwt/jwt";
-import { setToken } from "../../../middleware/jwt/setToken";
+} from "../../../utils/middleware/bcrypt/bcryptUtils";
+import { jwtGenerateToken } from "../../../utils/middleware/jwt/jwt";
+import { setToken } from "../../../utils/middleware/jwt/setToken";
 import {
   MINUSTHIRTYMINUTES,
   PLUSTHIRTYMINUTES,

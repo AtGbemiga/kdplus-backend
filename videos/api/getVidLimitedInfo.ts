@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from "express";
 import { dynamoDB } from "../../db/dal";
 import { ScanCommand } from "@aws-sdk/lib-dynamodb";
 import { AppError } from "../../lib/error";
+import { bucketUrl } from "../../utils/constants/s3url";
 
 export const vidLimitedInfo: express.RequestHandler = async (
   req: Request,
@@ -50,9 +51,6 @@ export const vidLimitedInfo: express.RequestHandler = async (
         posterKey,
       });
     });
-
-    // Construct the base URL for the S3 bucket
-    const bucketUrl = `https://${process.env.AWS_BUCKET}.s3.amazonaws.com/`;
 
     // Transform the categoriesMap into the desired format, limiting data items to 10 per category
     const homeVidOptions = Object.entries(categoriesMap).map(

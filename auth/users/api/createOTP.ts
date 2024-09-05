@@ -6,7 +6,7 @@ import nodemailerFn from "../../../lib/nodemailer/nodemailer";
 import {
   generateSalt,
   hashPassword,
-} from "../../../middleware/bcrypt/bcryptUtils";
+} from "../../../utils/middleware/bcrypt/bcryptUtils";
 import { PLUSTHIRTYMINUTES } from "../../../lib/constants/dates";
 
 interface BodyProps {

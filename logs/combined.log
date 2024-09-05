@@ -41,3 +41,5 @@
 2024-09-04T15:34:42.927Z [error]: Internal server error: Failed to upload cast and images
 2024-09-04T15:37:04.366Z [error]: Client error: Missing required fields
 2024-09-04T15:49:25.137Z [error]: Internal server error: No value provided for input HTTP label: Bucket. Please try again later
+2024-09-04T17:47:40.954Z [error]: Unauthorized: No token provided
+2024-09-04T17:47:59.575Z [error]: Unauthorized: No token provided

@@ -69,7 +69,6 @@ export const uploadVidCast: express.RequestHandler = async (
       res.status(200).json({
         status: "success",
         message: "Cast and image uploaded successfully",
-        updatedAttributes: updateResult.Attributes,
       });
     } catch (err) {
       return next(
