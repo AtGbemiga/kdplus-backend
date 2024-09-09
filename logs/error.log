@@ -43,3 +43,16 @@
 2024-09-04T15:49:25.137Z [error]: Internal server error: No value provided for input HTTP label: Bucket. Please try again later
 2024-09-04T17:47:40.954Z [error]: Unauthorized: No token provided
 2024-09-04T17:47:59.575Z [error]: Unauthorized: No token provided
+2024-09-05T15:51:17.616Z [error]: Client error: Missing required fields
+2024-09-05T15:53:01.634Z [error]: Client error: Missing required fields
+2024-09-05T15:54:01.435Z [error]: Client error: Missing required fields
+2024-09-05T15:56:35.275Z [error]: Client error: Missing required fields
+2024-09-05T16:01:49.089Z [error]: Client error: Missing required fields
+2024-09-05T16:02:29.312Z [error]: Client error: Missing required
+2024-09-05T16:03:26.159Z [error]: Client error: Missing required fields
+2024-09-05T16:06:50.980Z [error]: Client error: Missing required fields
+2024-09-05T16:08:13.536Z [error]: Client error: Missing required fields
+2024-09-05T16:08:56.561Z [error]: Client error: Missing required fields
+2024-09-05T16:11:29.311Z [error]: Video and poster files are required: Upload files
+2024-09-05T16:13:58.213Z [error]: Client error: Missing required fields
+2024-09-05T16:23:40.955Z [error]: Client error: Missing required fields
