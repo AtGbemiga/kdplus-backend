@@ -56,3 +56,9 @@
 2024-09-05T16:11:29.311Z [error]: Video and poster files are required: Upload files
 2024-09-05T16:13:58.213Z [error]: Client error: Missing required fields
 2024-09-05T16:23:40.955Z [error]: Client error: Missing required fields
+2024-09-09T17:05:53.678Z [error]: Invalid credentials: Invalid credentials
+2024-09-09T17:31:01.375Z [error]: Conflict: Video already exists in your list
+2024-09-09T17:32:36.776Z [error]: Conflict: Video already exists in your list
+2024-09-09T17:43:18.376Z [error]: Unauthorized: No token provided
+2024-09-09T17:45:25.789Z [error]: Conflict: Video already exists in your list
+2024-09-09T18:49:38.541Z [error]: Conflict: Video already exists in your list
