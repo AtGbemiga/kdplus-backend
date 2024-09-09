@@ -1,10 +1,10 @@
 import { QueryCommand } from "@aws-sdk/client-dynamodb";
 import express, { NextFunction, Request, Response } from "express";
-import { dynamoDB } from "../../../db/dal";
-import { AppError } from "../../../lib/error";
-import { comparePassword } from "../../../utils/middleware/bcrypt/bcryptUtils";
-import { jwtGenerateToken } from "../../../utils/middleware/jwt/jwt";
-import { setToken } from "../../../utils/middleware/jwt/setToken";
+import { dynamoDB } from "../../../../db/dal";
+import { AppError } from "../../../../lib/error";
+import { comparePassword } from "../../../../utils/middleware/bcrypt/bcryptUtils";
+import { jwtGenerateToken } from "../../../../utils/middleware/jwt/jwt";
+import { setToken } from "../../../../utils/middleware/jwt/setToken";
 
 interface BodyProps {
   email: string;

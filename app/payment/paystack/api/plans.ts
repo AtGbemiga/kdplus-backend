@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import * as https from "https"; // Import https module
 import * as http from "http";
-import { BASEURL } from "../../../lib/constants/severURL";
+import { BASEURL } from "../../../../lib/constants/severURL";
 
 export const oneMonth = (req: Request, res: Response): void => {
   const params = JSON.stringify({

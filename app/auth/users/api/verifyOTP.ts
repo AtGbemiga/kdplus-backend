@@ -1,17 +1,17 @@
 import { DeleteCommand, PutCommand, QueryCommand } from "@aws-sdk/lib-dynamodb";
 import express, { NextFunction, Request, Response } from "express";
-import { dynamoDB } from "../../../db/dal";
-import { AppError } from "../../../lib/error";
+import { dynamoDB } from "../../../../db/dal";
+import { AppError } from "../../../../lib/error";
 import {
   generateSalt,
   hashPassword,
-} from "../../../utils/middleware/bcrypt/bcryptUtils";
-import { jwtGenerateToken } from "../../../utils/middleware/jwt/jwt";
-import { setToken } from "../../../utils/middleware/jwt/setToken";
+} from "../../../../utils/middleware/bcrypt/bcryptUtils";
+import { jwtGenerateToken } from "../../../../utils/middleware/jwt/jwt";
+import { setToken } from "../../../../utils/middleware/jwt/setToken";
 import {
   MINUSTHIRTYMINUTES,
   PLUSTHIRTYMINUTES,
-} from "../../../lib/constants/dates";
+} from "../../../../lib/constants/dates";
 
 interface BodyProps {
   code: string;

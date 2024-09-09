@@ -23,10 +23,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(limiter);
 
-import userRouter from "./auth/users/domain/routes";
-import payStackRouter from "./payment/paystack/domain/routes";
-import planRouter from "./plans/domain/routes";
-import videoRouter from "./videos/domain/routes";
+import userRouter from "./app/auth/users/domain/routes";
+import payStackRouter from "./app/payment/paystack/domain/routes";
+import planRouter from "./app/plans/domain/routes";
+import videoRouter from "./app/videos/domain/routes";
 import { APIVERSION } from "./lib/constants/apiVersion";
 
 app.get("/", (req: Request, res: Response) => {

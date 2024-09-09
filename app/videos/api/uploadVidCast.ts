@@ -1,8 +1,8 @@
 import express, { Request, Response, NextFunction } from "express";
-import { upload } from "../../lib/multer/upload";
-import { AppError } from "../../lib/error";
+import { upload } from "../../../lib/multer/upload";
+import { AppError } from "../../../lib/error";
 import { ReturnValue } from "@aws-sdk/client-dynamodb";
-import { dynamoDB, s3 } from "../../db/dal";
+import { dynamoDB, s3 } from "../../../db/dal";
 import { UpdateCommand } from "@aws-sdk/lib-dynamodb";
 import { PutObjectCommand } from "@aws-sdk/client-s3";
 

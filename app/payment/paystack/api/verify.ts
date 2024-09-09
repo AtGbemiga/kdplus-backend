@@ -1,6 +1,6 @@
 import * as http from "http";
 import * as https from "https"; // Import https module
-import { ResVerifyPayment } from "../../../types/paystack/resVerifyPayment";
+import { ResVerifyPayment } from "../../../../types/paystack/resVerifyPayment";
 
 type VerifyProps = {
   referenceID: string;

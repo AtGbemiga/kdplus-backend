@@ -1,9 +1,9 @@
 import { ReturnValue } from "@aws-sdk/client-dynamodb";
 import { UpdateCommand } from "@aws-sdk/lib-dynamodb";
 import express, { NextFunction, Request, Response } from "express";
-import { dynamoDB } from "../../../db/dal";
-import { THIRTYDAYS } from "../../../lib/constants/dates";
-import { AppError } from "../../../lib/error";
+import { dynamoDB } from "../../../../db/dal";
+import { THIRTYDAYS } from "../../../../lib/constants/dates";
+import { AppError } from "../../../../lib/error";
 import { verify } from "./verify";
 export const callback = async (
   req: Request,

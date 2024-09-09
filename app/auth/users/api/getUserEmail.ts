@@ -1,5 +1,5 @@
 import express, { Request, Response, NextFunction } from "express";
-import { AppError } from "../../../lib/error";
+import { AppError } from "../../../../lib/error";
 import jwt from "jsonwebtoken";
 
 export const decodeUserEmail = (

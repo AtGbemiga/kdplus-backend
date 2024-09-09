@@ -1,8 +1,8 @@
 import express, { Request, Response, NextFunction } from "express";
-import { AppError } from "../../lib/error";
+import { AppError } from "../../../lib/error";
 import { decodeUserEmail } from "../../auth/users/api/getUserEmail";
 import { ReturnValue } from "@aws-sdk/client-dynamodb";
-import { dynamoDB } from "../../db/dal";
+import { dynamoDB } from "../../../db/dal";
 import { GetCommand, QueryCommand, UpdateCommand } from "@aws-sdk/lib-dynamodb";
 import { isVidInUserList } from "./isVidInUserList";
 

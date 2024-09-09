@@ -1,9 +1,9 @@
 import express, { Request, Response, NextFunction } from "express";
-import { AppError } from "../../lib/error";
-import { dynamoDB } from "../../db/dal";
+import { AppError } from "../../../lib/error";
+import { dynamoDB } from "../../../db/dal";
 import { QueryCommand } from "@aws-sdk/lib-dynamodb";
-import { bucketUrl } from "../../utils/constants/s3url";
-export const streamVideo: express.RequestHandler = async (
+import { bucketUrl } from "../../../utils/constants/s3url";
+export const getCasts: express.RequestHandler = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -21,7 +21,7 @@ export const streamVideo: express.RequestHandler = async (
       ":videoId": videoId,
       ":category": category,
     },
-    ProjectionExpression: "videoS3Key",
+    ProjectionExpression: "video_cast",
   };
 
   try {
@@ -31,8 +31,18 @@ export const streamVideo: express.RequestHandler = async (
       return next(new AppError("Not Found", 404, "No Cast Found", true));
     }
 
-    // Append bucket URL to the videoS3Key
-    const modifiedData = `${bucketUrl}${data.Items[0].videoS3Key}`;
+    // Append bucket URL to each imageS3Key in the video_cast array
+    const modifiedData = data.Items.map((item) => {
+      if (item.video_cast) {
+        item.video_cast = item.video_cast.map(
+          (cast: { imageS3Key: string }) => ({
+            ...cast,
+            profilePic: bucketUrl + cast.imageS3Key,
+          })
+        );
+      }
+      return item;
+    });
 
     res.status(200).json({ status: "success", data: modifiedData });
   } catch (error) {

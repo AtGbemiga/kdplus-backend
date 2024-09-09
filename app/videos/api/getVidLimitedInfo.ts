@@ -1,8 +1,8 @@
 import express, { Request, Response, NextFunction } from "express";
-import { dynamoDB } from "../../db/dal";
+import { dynamoDB } from "../../../db/dal";
 import { ScanCommand } from "@aws-sdk/lib-dynamodb";
-import { AppError } from "../../lib/error";
-import { bucketUrl } from "../../utils/constants/s3url";
+import { AppError } from "../../../lib/error";
+import { bucketUrl } from "../../../utils/constants/s3url";
 
 export const vidLimitedInfo: express.RequestHandler = async (
   req: Request,

@@ -1,13 +1,13 @@
 import { PutCommand } from "@aws-sdk/lib-dynamodb";
 import express, { NextFunction, Request, Response } from "express";
-import { dynamoDB } from "../../../db/dal";
-import { AppError } from "../../../lib/error";
-import nodemailerFn from "../../../lib/nodemailer/nodemailer";
+import { dynamoDB } from "../../../../db/dal";
+import { AppError } from "../../../../lib/error";
+import nodemailerFn from "../../../../lib/nodemailer/nodemailer";
 import {
   generateSalt,
   hashPassword,
-} from "../../../utils/middleware/bcrypt/bcryptUtils";
-import { PLUSTHIRTYMINUTES } from "../../../lib/constants/dates";
+} from "../../../../utils/middleware/bcrypt/bcryptUtils";
+import { PLUSTHIRTYMINUTES } from "../../../../lib/constants/dates";
 
 interface BodyProps {
   username: string;

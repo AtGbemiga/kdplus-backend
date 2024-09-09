@@ -1,6 +1,6 @@
 import express, { NextFunction, Request, Response } from "express";
-import { AppError } from "../../../lib/error";
-import { dynamoDB } from "../../../db/dal";
+import { AppError } from "../../../../lib/error";
+import { dynamoDB } from "../../../../db/dal";
 import { PutCommand } from "@aws-sdk/lib-dynamodb";
 import { decodeUserEmail } from "./getUserEmail";
 

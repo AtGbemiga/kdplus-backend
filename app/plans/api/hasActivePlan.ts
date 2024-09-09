@@ -1,8 +1,8 @@
 import express, { Request, Response, NextFunction } from "express";
 import { decodeUserEmail } from "../../auth/users/api/getUserEmail";
-import { AppError } from "../../lib/error";
-import { CURRENTDATE } from "../../lib/constants/dates";
-import { dynamoDB } from "../../db/dal";
+import { AppError } from "../../../lib/error";
+import { CURRENTDATE } from "../../../lib/constants/dates";
+import { dynamoDB } from "../../../db/dal";
 import { QueryCommand } from "@aws-sdk/lib-dynamodb";
 export const hasActivePlan: express.RequestHandler = async (
   req: Request,
