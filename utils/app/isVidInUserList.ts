@@ -1,7 +1,7 @@
 import express, { Request, Response, NextFunction } from "express";
-import { AppError } from "../../../lib/error";
-import { decodeUserEmail } from "../../auth/users/api/getUserEmail";
-import { dynamoDB } from "../../../db/dal";
+import { AppError } from "../../lib/error";
+import { decodeUserEmail } from "../../app/auth/users/api/getUserEmail";
+import { dynamoDB } from "../../db/dal";
 import { GetCommand } from "@aws-sdk/lib-dynamodb";
 
 // Utility function to check if video exists in the user's list

@@ -62,3 +62,11 @@
 2024-09-09T17:43:18.376Z [error]: Unauthorized: No token provided
 2024-09-09T17:45:25.789Z [error]: Conflict: Video already exists in your list
 2024-09-09T18:49:38.541Z [error]: Conflict: Video already exists in your list
+2024-09-11T15:35:48.811Z [error]: Unauthorized: No token provided
+2024-09-11T15:36:11.334Z [error]: Client error: Missing required category
+2024-09-11T15:38:32.911Z [error]: Unauthorized: No token provided
+2024-09-11T16:04:03.692Z [error]: Unauthorized: No token provided
+2024-09-11T16:09:37.401Z [error]: Conflict: Video already exists in your list
+2024-09-11T16:10:22.166Z [error]: Conflict: Video already exists in your list
+2024-09-11T16:13:37.749Z [error]: Client error: Missing required videoId
+2024-09-11T16:14:30.465Z [error]: Conflict: Video already exists in your list

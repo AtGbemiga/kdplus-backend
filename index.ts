@@ -28,6 +28,7 @@ import payStackRouter from "./app/payment/paystack/domain/routes";
 import planRouter from "./app/plans/domain/routes";
 import videoRouter from "./app/videos/domain/routes";
 import { APIVERSION } from "./lib/constants/apiVersion";
+import { verifyToken } from "./utils/middleware/token/checkToken";
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello World!");
@@ -36,7 +37,7 @@ app.get("/", (req: Request, res: Response) => {
 app.use(`${APIVERSION}/users`, userRouter);
 app.use(`${APIVERSION}/paystack`, payStackRouter);
 app.use(`${APIVERSION}/plans`, planRouter);
-app.use(`${APIVERSION}/videos`, videoRouter);
+app.use(`${APIVERSION}/videos`, verifyToken, videoRouter);
 
 app.use(errorHandler);
 

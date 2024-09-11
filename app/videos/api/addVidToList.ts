@@ -4,7 +4,7 @@ import { decodeUserEmail } from "../../auth/users/api/getUserEmail";
 import { ReturnValue } from "@aws-sdk/client-dynamodb";
 import { dynamoDB } from "../../../db/dal";
 import { GetCommand, QueryCommand, UpdateCommand } from "@aws-sdk/lib-dynamodb";
-import { isVidInUserList } from "./isVidInUserList";
+import { isVidInUserList } from "../../../utils/app/isVidInUserList";
 
 interface BodyProps {
   videoId: string;
@@ -16,11 +16,6 @@ export const addVidToList: express.RequestHandler = async (
   res: Response,
   next: NextFunction
 ) => {
-  const token = req.headers.authorization?.split(" ")[1];
-  if (!token) {
-    return next(new AppError("Unauthorized", 401, "No token provided", true));
-  }
-
   const { videoId, category }: BodyProps = req.body;
 
   if (!videoId || !category) {

@@ -6,6 +6,7 @@ import { getCasts } from "../api/getVideoCasts";
 import { uploadVidCast } from "../api/uploadVidCast";
 import { streamVideo } from "../api/streamVideo";
 import { addVidToList } from "../api/addVidToList";
+import { isVideoInUserList } from "../api/isVideoInUsersList";
 
 const router = Router();
 
@@ -16,5 +17,6 @@ router.get("/casts", getCasts);
 router.post("/upload-cast", uploadVidCast);
 router.get("/stream-video", streamVideo);
 router.post("/add-video-to-list", addVidToList);
+router.post("/is-video-in-users-list", isVideoInUserList);
 
 export default router;

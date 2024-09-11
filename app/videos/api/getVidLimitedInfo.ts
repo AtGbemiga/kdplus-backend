@@ -10,12 +10,6 @@ export const vidLimitedInfo: express.RequestHandler = async (
   next: NextFunction
 ) => {
   try {
-    // check for token
-    // const token = req.headers.authorization?.split(" ")[1];
-    // if (!token) {
-    //   return next(new AppError("Unauthorized", 401, "No token provided", true));
-    // }
-
     // Scan the DynamoDB table to get all videos
     const { Items } = await dynamoDB.send(
       new ScanCommand({ TableName: "Videos" })

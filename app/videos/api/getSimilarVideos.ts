@@ -8,11 +8,6 @@ export const vidsByCategory: express.RequestHandler = async (
   res: Response,
   next: NextFunction
 ) => {
-  const token = req.headers.authorization?.split(" ")[1];
-  if (!token) {
-    return next(new AppError("Unauthorized", 401, "No token provided", true));
-  }
-
   const { category } = req.query;
 
   if (!category) {
