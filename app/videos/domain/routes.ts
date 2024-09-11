@@ -7,6 +7,7 @@ import { uploadVidCast } from "../api/uploadVidCast";
 import { streamVideo } from "../api/streamVideo";
 import { addVidToList } from "../api/addVidToList";
 import { isVideoInUserList } from "../api/isVideoInUsersList";
+import { deleteVidFromList } from "../api/deleteVidFromList";
 
 const router = Router();
 
@@ -18,5 +19,6 @@ router.post("/upload-cast", uploadVidCast);
 router.get("/stream-video", streamVideo);
 router.post("/add-video-to-list", addVidToList);
 router.post("/is-video-in-users-list", isVideoInUserList);
+router.delete("/delete-video-from-list", deleteVidFromList);
 
 export default router;
