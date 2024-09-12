@@ -37,7 +37,6 @@ export const oneMonth = (req: Request, res: Response): void => {
 
       respaystack.on("end", () => {
         res.send(data);
-        // console.log(JSON.parse(data));
       });
     })
     .on("error", (error) => {

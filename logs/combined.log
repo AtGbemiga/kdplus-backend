@@ -77,3 +77,8 @@
 2024-09-11T17:22:48.612Z [error]: Internal server error: Invalid UpdateExpression: Invalid function name; function: list_remove Please try again later
 2024-09-11T17:26:06.536Z [error]: Not Found: Video does not exist in your list
 2024-09-11T17:27:37.004Z [error]: Internal server error: Invalid UpdateExpression: Invalid function name; function: list_remove Please try again later
+2024-09-12T16:41:30.768Z [error]: Client error: Missing required category
+2024-09-12T17:32:52.381Z [error]: No videos found: No videos found in the user list
+2024-09-12T17:34:02.484Z [error]: No videos found: No videos found in the user list
+2024-09-12T17:34:12.034Z [error]: No videos found: No videos found in the user list
+2024-09-12T17:34:32.462Z [error]: No videos found: No videos found in the user list

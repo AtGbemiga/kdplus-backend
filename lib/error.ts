@@ -42,7 +42,6 @@ export const errorHandler = (
   res: Response,
   next: NextFunction
 ) => {
-  // console.error(err);
   // Log the error using Winston
   logger.error(`${err.name}: ${err.message}`, {
     httpCode: err.httpCode,

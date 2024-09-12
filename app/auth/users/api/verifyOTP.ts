@@ -26,7 +26,6 @@ export const verifyOTP: express.RequestHandler = async (
   next: NextFunction
 ) => {
   const { code, email, password, username }: BodyProps = req.body;
-  console.log({ code, email, password, username });
 
   if (!code || !email || !password || !username) {
     return next(new AppError("Unauthorized", 401, "Invalid input", true));

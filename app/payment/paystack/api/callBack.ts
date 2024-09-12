@@ -13,7 +13,6 @@ export const callback = async (
   const { reference: referenceID } = req.query as {
     reference: string;
   };
-  console.log({ referenceID: referenceID });
 
   try {
     const response = await verify({ referenceID });
@@ -40,7 +39,6 @@ export const callback = async (
         );
       }
 
-      console.log({ email, referenceID, payment_status });
       // acc_type and userPlan will come from the response
 
       // Update a user via email and add the plan to their item
@@ -61,8 +59,6 @@ export const callback = async (
       };
 
       const result = await dynamoDB.send(new UpdateCommand(updateParams));
-
-      console.log("Update successful:", result);
 
       // Send a success response
       res.status(200).json({

@@ -29,7 +29,7 @@ export default function nodemailerFn(
       html: msg,
     });
 
-    console.log("Message sent: %s", info.messageId);
+    // console.log("Message sent: %s", info.messageId);
   }
 
   main().catch(console.error);

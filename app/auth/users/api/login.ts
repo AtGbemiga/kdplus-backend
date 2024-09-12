@@ -45,10 +45,7 @@ export const loginUserViaEmail: express.RequestHandler = async (
       );
     }
 
-    console.log(data.Items);
-
     const storedPassword = data.Items[0].password.S;
-    console.log("userPassword", storedPassword);
 
     if (!storedPassword) {
       return next(
@@ -64,7 +61,6 @@ export const loginUserViaEmail: express.RequestHandler = async (
       }
 
       const token = jwtGenerateToken(email);
-      console.log(token);
 
       setToken(req, res, token);
 

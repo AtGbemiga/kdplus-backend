@@ -30,7 +30,6 @@ export const verify = ({
         });
 
         respaystack.on("end", () => {
-          console.log(data);
           const responseData: ResVerifyPayment = JSON.parse(data);
           resolve(responseData);
         });
