@@ -82,3 +82,9 @@
 2024-09-12T17:34:02.484Z [error]: No videos found: No videos found in the user list
 2024-09-12T17:34:12.034Z [error]: No videos found: No videos found in the user list
 2024-09-12T17:34:32.462Z [error]: No videos found: No videos found in the user list
+2024-09-12T20:43:55.458Z [error]: Unauthorized: No token provided
+2024-09-12T20:45:26.419Z [error]: Client error: Missing required fields
+2024-09-17T16:21:48.783Z [error]: Client error: Rating already exists
+2024-09-17T16:22:59.320Z [error]: Client error: Rating already exists
+2024-09-17T16:44:21.674Z [error]: Client error: Rating already exists
+2024-09-17T16:47:04.337Z [error]: Client error: Rating already exists
