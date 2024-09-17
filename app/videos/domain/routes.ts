@@ -1,16 +1,17 @@
 import { Router } from "express";
-import { uploadVideo } from "../api/uploadVid";
-import { vidLimitedInfo } from "../api/getVidLimitedInfo";
+import { addVidRating } from "../api/addVidRating";
+import { addVidToList } from "../api/addVidToList";
+import { deleteVidFromList } from "../api/deleteVidFromList";
+import { deleteVidRating } from "../api/deleteVidRating";
 import { vidsByCategory } from "../api/getSimilarVideos";
 import { getCasts } from "../api/getVideoCasts";
-import { uploadVidCast } from "../api/uploadVidCast";
-import { streamVideo } from "../api/streamVideo";
-import { addVidToList } from "../api/addVidToList";
-import { isVideoInUserList } from "../api/isVideoInUsersList";
-import { deleteVidFromList } from "../api/deleteVidFromList";
+import { vidLimitedInfo } from "../api/getVidLimitedInfo";
 import { getUserListVids } from "../api/getVidsInUserList";
-import { addVidRating } from "../api/addVidRating";
-import { deleteVidRating } from "../api/deleteVidRating";
+import { isVideoInUserList } from "../api/isVideoInUsersList";
+import { isVideoRatedByUser } from "../api/isVidRatedByUser";
+import { streamVideo } from "../api/streamVideo";
+import { uploadVideo } from "../api/uploadVid";
+import { uploadVidCast } from "../api/uploadVidCast";
 
 const router = Router();
 
@@ -26,5 +27,6 @@ router.delete("/delete-video-from-list", deleteVidFromList);
 router.get("/get-videos-in-user-list", getUserListVids);
 router.post("/add-video-rating", addVidRating);
 router.delete("/delete-video-rating", deleteVidRating);
+router.post("/is-video-rated-by-user", isVideoRatedByUser);
 
 export default router;

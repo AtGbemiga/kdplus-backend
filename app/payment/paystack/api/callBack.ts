@@ -1,6 +1,6 @@
 import { ReturnValue } from "@aws-sdk/client-dynamodb";
 import { UpdateCommand } from "@aws-sdk/lib-dynamodb";
-import express, { NextFunction, Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { dynamoDB } from "../../../../db/dal";
 import { THIRTYDAYS } from "../../../../lib/constants/dates";
 import { AppError } from "../../../../lib/error";
@@ -20,7 +20,6 @@ export const callback = async (
     if (response.data.status === "success") {
       const { email } = response.data.customer;
       const { reference: referenceID } = response.data;
-      const { status: payment_status } = response.data;
       const metadata = response.data.metadata;
 
       let userPlan = "";
@@ -58,12 +57,11 @@ export const callback = async (
         ReturnValues: ReturnValue.UPDATED_NEW,
       };
 
-      const result = await dynamoDB.send(new UpdateCommand(updateParams));
+      await dynamoDB.send(new UpdateCommand(updateParams));
 
       // Send a success response
       res.status(200).json({
         status: "success",
-        // data: result.Attributes, // Return updated attributes if needed
       });
     } else {
       return next(

@@ -88,3 +88,7 @@
 2024-09-17T16:22:59.320Z [error]: Client error: Rating already exists
 2024-09-17T16:44:21.674Z [error]: Client error: Rating already exists
 2024-09-17T16:47:04.337Z [error]: Client error: Rating already exists
+2024-09-17T16:58:12.247Z [error]: Unauthorized: No token provided
+2024-09-17T17:29:03.899Z [error]: Client error: Rating already exists
+2024-09-17T17:43:33.921Z [error]: Unauthorized: No token provided
+2024-09-17T17:43:58.817Z [error]: Client error: Missing required videoId

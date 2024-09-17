@@ -1,6 +1,7 @@
 import { DeleteCommand, PutCommand, QueryCommand } from "@aws-sdk/lib-dynamodb";
 import express, { NextFunction, Request, Response } from "express";
 import { dynamoDB } from "../../../../db/dal";
+import { MINUSTHIRTYMINUTES } from "../../../../lib/constants/dates";
 import { AppError } from "../../../../lib/error";
 import {
   generateSalt,
@@ -8,10 +9,6 @@ import {
 } from "../../../../utils/middleware/bcrypt/bcryptUtils";
 import { jwtGenerateToken } from "../../../../utils/middleware/jwt/jwt";
 import { setToken } from "../../../../utils/middleware/jwt/setToken";
-import {
-  MINUSTHIRTYMINUTES,
-  PLUSTHIRTYMINUTES,
-} from "../../../../lib/constants/dates";
 
 interface BodyProps {
   code: string;
@@ -105,7 +102,12 @@ export const verifyOTP: express.RequestHandler = async (
     }
   } catch (error) {
     return next(
-      new AppError("Server Error", 500, "Internal Server Error", true)
+      new AppError(
+        "Internal server error",
+        500,
+        (error as Error).message + " Please try again later",
+        true
+      )
     );
   }
 };

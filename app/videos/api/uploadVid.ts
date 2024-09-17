@@ -1,7 +1,6 @@
-import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import { PutObjectCommand } from "@aws-sdk/client-s3";
 import { PutCommand } from "@aws-sdk/lib-dynamodb";
 import express, { NextFunction, Request, Response } from "express";
-import multer from "multer";
 import { dynamoDB, s3 } from "../../../db/dal";
 import { AppError } from "../../../lib/error";
 import { upload } from "../../../lib/multer/upload";

@@ -5,7 +5,7 @@ import { dynamoDB } from "../../db/dal";
 import { AppError } from "../../lib/error";
 
 // Utility function to check if video exists in the user's list
-export const isVidInUserList = async (
+export const hasUserRatedVid = async (
   req: Request,
   next: NextFunction
 ): Promise<boolean> => {
@@ -18,18 +18,19 @@ export const isVidInUserList = async (
         email: email,
         acc_type: "email",
       },
-      ProjectionExpression: "user_list", // Only fetch user_list
+      ProjectionExpression: "user_video_rating", // Only fetch user_list
     };
 
     const userData = await dynamoDB.send(new GetCommand(getParams));
 
-    const userList = userData.Item?.user_list || [];
+    const userVidRatingList = userData.Item?.user_video_rating || [];
 
-    const videoExists = userList.some(
-      (item: { videoId: string }) => item.videoId === req.body.videoId
+    const videoRatingExists = userVidRatingList.some(
+      (item: { videoId: string; category: string }) =>
+        item.videoId === req.body.videoId && item.category === req.body.category
     );
 
-    return videoExists;
+    return videoRatingExists;
   } catch (error) {
     next(
       new AppError(

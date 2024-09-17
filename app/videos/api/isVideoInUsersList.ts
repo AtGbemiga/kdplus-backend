@@ -1,7 +1,6 @@
-import express, { Request, Response, NextFunction } from "express";
-import { decodeUserEmail } from "../../auth/users/api/getUserEmail";
-import { isVidInUserList } from "../../../utils/app/isVidInUserList";
+import express, { NextFunction, Request, Response } from "express";
 import { AppError } from "../../../lib/error";
+import { isVidInUserList } from "../../../utils/app/isVidInUserList";
 export const isVideoInUserList: express.RequestHandler = async (
   req: Request,
   res: Response,

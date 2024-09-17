@@ -1,4 +1,4 @@
-export interface PlanObject {}
+export interface PlanObject {} // eslint-disable-line
 
 export interface Authorization {
   authorization_code: string;

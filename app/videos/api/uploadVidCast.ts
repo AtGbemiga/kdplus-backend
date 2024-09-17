@@ -64,7 +64,7 @@ export const uploadVidCast: express.RequestHandler = async (
         ReturnValues: ReturnValue.UPDATED_NEW,
       };
 
-      const updateResult = await dynamoDB.send(new UpdateCommand(updateParams));
+      await dynamoDB.send(new UpdateCommand(updateParams));
 
       res.status(200).json({
         status: "success",

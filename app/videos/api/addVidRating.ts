@@ -1,8 +1,9 @@
 import { ReturnValue } from "@aws-sdk/client-dynamodb";
-import { GetCommand, UpdateCommand } from "@aws-sdk/lib-dynamodb";
+import { UpdateCommand } from "@aws-sdk/lib-dynamodb";
 import express, { NextFunction, Request, Response } from "express";
 import { dynamoDB } from "../../../db/dal";
 import { AppError } from "../../../lib/error";
+import { hasUserRatedVid } from "../../../utils/app/hasUserRatedVid";
 import { decodeUserEmail } from "../../auth/users/api/getUserEmail";
 
 interface BodyProps {
@@ -25,34 +26,17 @@ export const addVidRating: express.RequestHandler = async (
   }
 
   try {
-    // Get the user's email after validation in the utility
-    const email = decodeUserEmail(req, null, next);
-
-    // Check if the rating already exists
-    const getParams = {
-      TableName: "Users",
-      Key: {
-        email: email,
-        acc_type: "email",
-      },
-      ProjectionExpression: "user_video_rating",
-    };
-
-    const { Item } = await dynamoDB.send(new GetCommand(getParams));
-
-    const existingRatings = Item?.user_video_rating || [];
-
-    // Check if the videoId and category already have a rating
-    const ratingExists = existingRatings.some(
-      (item: { videoId: string; category: string }) =>
-        item.videoId === videoId && item.category === category
-    );
-
+    const ratingExists = await hasUserRatedVid(req, next);
     if (ratingExists) {
       return next(
         new AppError("Client error", 400, "Rating already exists", true)
       );
     }
+
+    // Get the user's email after validation in the utility
+    const email = decodeUserEmail(req, null, next);
+
+    // Check if the videoId and category already have a rating
 
     // Add the video rating if it doesn't exist
     const updateParams = {

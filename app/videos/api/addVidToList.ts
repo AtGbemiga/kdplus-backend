@@ -1,10 +1,10 @@
-import express, { Request, Response, NextFunction } from "express";
-import { AppError } from "../../../lib/error";
-import { decodeUserEmail } from "../../auth/users/api/getUserEmail";
 import { ReturnValue } from "@aws-sdk/client-dynamodb";
+import { UpdateCommand } from "@aws-sdk/lib-dynamodb";
+import express, { NextFunction, Request, Response } from "express";
 import { dynamoDB } from "../../../db/dal";
-import { GetCommand, QueryCommand, UpdateCommand } from "@aws-sdk/lib-dynamodb";
+import { AppError } from "../../../lib/error";
 import { isVidInUserList } from "../../../utils/app/isVidInUserList";
+import { decodeUserEmail } from "../../auth/users/api/getUserEmail";
 
 interface BodyProps {
   videoId: string;
