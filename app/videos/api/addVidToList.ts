@@ -4,7 +4,7 @@ import express, { NextFunction, Request, Response } from "express";
 import { dynamoDB } from "../../../db/dal";
 import { AppError } from "../../../lib/error";
 import { isVidInUserList } from "../../../utils/app/isVidInUserList";
-import { decodeUserEmail } from "../../auth/users/api/getUserEmail";
+import { decodeUserEmail } from "../../auth/email/api/getUserEmail";
 
 interface BodyProps {
   videoId: string;

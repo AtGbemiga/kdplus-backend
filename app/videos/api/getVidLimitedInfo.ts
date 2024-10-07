@@ -26,6 +26,7 @@ export const vidLimitedInfo: express.RequestHandler = async (
       [key: string]: {
         videoId: string;
         posterKey: string;
+        videoS3Key: string;
       }[];
     } = {};
 
@@ -33,6 +34,7 @@ export const vidLimitedInfo: express.RequestHandler = async (
       const category = item.category || "uncategorized";
       const posterKey = item.posterImageS3Key;
       const videoId = item.videoId;
+      const videoS3Key = item.videoS3Key;
 
       // Initialize category array if it doesn't exist
       if (!categoriesMap[category]) {
@@ -43,6 +45,7 @@ export const vidLimitedInfo: express.RequestHandler = async (
       categoriesMap[category].push({
         videoId,
         posterKey,
+        videoS3Key,
       });
     });
 
@@ -50,9 +53,10 @@ export const vidLimitedInfo: express.RequestHandler = async (
     const homeVidOptions = Object.entries(categoriesMap).map(
       ([header, data]) => ({
         header,
-        data: data.slice(0, 10).map(({ videoId, posterKey }) => ({
+        data: data.slice(0, 10).map(({ videoId, posterKey, videoS3Key }) => ({
           id: videoId,
           posterUrl: `${bucketUrl}${posterKey}`,
+          videoUrl: `${bucketUrl}${videoS3Key}`,
         })),
       })
     );

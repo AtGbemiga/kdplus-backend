@@ -12,6 +12,7 @@ import { isVideoRatedByUser } from "../api/isVidRatedByUser";
 import { streamVideo } from "../api/streamVideo";
 import { uploadVideo } from "../api/uploadVid";
 import { uploadVidCast } from "../api/uploadVidCast";
+import { getVidUrl } from "../api/getVidUrl";
 
 const router = Router();
 
@@ -28,5 +29,6 @@ router.get("/get-videos-in-user-list", getUserListVids);
 router.post("/add-video-rating", addVidRating);
 router.delete("/delete-video-rating", deleteVidRating);
 router.post("/is-video-rated-by-user", isVideoRatedByUser);
+router.get("/get-video-url", getVidUrl);
 
 export default router;

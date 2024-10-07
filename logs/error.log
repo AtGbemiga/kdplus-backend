@@ -92,3 +92,20 @@
 2024-09-17T17:29:03.899Z [error]: Client error: Rating already exists
 2024-09-17T17:43:33.921Z [error]: Unauthorized: No token provided
 2024-09-17T17:43:58.817Z [error]: Client error: Missing required videoId
+2024-09-17T18:57:24.186Z [error]: Client error: Rating already exists
+2024-09-17T18:58:35.449Z [error]: Client error: Rating already exists
+2024-09-23T20:38:56.166Z [error]: Unauthorized: No token provided
+2024-09-25T19:17:20.318Z [error]: Unauthorized: No token provided
+2024-09-25T19:18:13.221Z [error]: Client error: Missing required videoId or category
+2024-09-25T19:20:11.690Z [error]: Client error: Missing required videoId or category
+2024-10-01T15:45:47.210Z [error]: Not Found: No user found
+2024-10-01T15:45:49.885Z [error]: Not Found: No user found
+2024-10-02T17:41:44.324Z [error]: Unauthorized: No token provided
+2024-10-02T17:42:49.154Z [error]: Client error: Missing required fields
+2024-10-02T17:48:14.946Z [error]: Unauthorized: No token provided
+2024-10-02T17:49:08.143Z [error]: Client error: Missing required fields
+2024-10-02T19:01:22.014Z [error]: Client error: Missing required category or videoId
+2024-10-02T19:02:03.325Z [error]: Client error: Missing required category or videoId
+2024-10-03T16:09:39.722Z [error]: Not Found: No videos found
+2024-10-03T16:10:31.892Z [error]: Not Found: No videos found
+2024-10-03T16:29:46.237Z [error]: Not Found: No videos found

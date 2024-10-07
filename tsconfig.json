@@ -4,6 +4,6 @@
     "module": "CommonJS",
     "sourceMap": true,
     "esModuleInterop": true,
-    "outDir": "build"
+    "outDir": "../build"
   }
 }

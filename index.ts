@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(limiter);
 
-import userRouter from "./app/auth/users/domain/routes";
+import userRouter from "./app/auth/email/domain/routes";
 import payStackRouter from "./app/payment/paystack/domain/routes";
 import planRouter from "./app/plans/domain/routes";
 import videoRouter from "./app/videos/domain/routes";
