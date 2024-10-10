@@ -27,6 +27,7 @@ import userRouter from "./app/auth/email/domain/routes";
 import payStackRouter from "./app/payment/paystack/domain/routes";
 import planRouter from "./app/plans/domain/routes";
 import videoRouter from "./app/videos/domain/routes";
+import prelaunchRouter from "./app/prelaunch/domain/routes";
 import { APIVERSION } from "./lib/constants/apiVersion";
 import { verifyToken } from "./utils/middleware/token/checkToken";
 
@@ -38,6 +39,7 @@ app.use(`${APIVERSION}/users`, userRouter);
 app.use(`${APIVERSION}/paystack`, payStackRouter);
 app.use(`${APIVERSION}/plans`, planRouter);
 app.use(`${APIVERSION}/videos`, verifyToken, videoRouter);
+app.use(`${APIVERSION}/prelaunch`, prelaunchRouter);
 
 app.use(errorHandler);
 

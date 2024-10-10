@@ -109,3 +109,7 @@
 2024-10-03T16:09:39.722Z [error]: Not Found: No videos found
 2024-10-03T16:10:31.892Z [error]: Not Found: No videos found
 2024-10-03T16:29:46.237Z [error]: Not Found: No videos found
+2024-10-10T15:53:52.181Z [error]: Invalid input: Missing required fields
+2024-10-10T16:02:14.113Z [error]: User already exists: User already exists
+2024-10-10T16:03:41.754Z [error]: Client error: User already exists
+2024-10-10T17:55:57.027Z [error]: Internal server error: jwt malformed Please try again later
