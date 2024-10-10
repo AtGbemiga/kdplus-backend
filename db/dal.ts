@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === "development") {
     },
   });
 } else if (process.env.NODE_ENV === "production") {
-  new DynamoDBClient({
+  client = new DynamoDBClient({
     region: "eu-north-1",
     credentials: {
       accessKeyId: process.env.AWS_ACCESS_KEY_ID as string,
@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === "development") {
     },
   });
 } else {
-  new AppError("ENV not set", 500, "ENV not set", true); // not sure the error will be passed this way
+  throw new AppError("ENV not set", 500, "ENV not set", true); // not sure the error will be passed this way
 }
 
 export const dynamoDB = DynamoDBDocumentClient.from(client);
