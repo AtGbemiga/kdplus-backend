@@ -11,6 +11,7 @@ export const hasActivePlan: express.RequestHandler = async (
 ) => {
   try {
     const email = decodeUserEmail(req, null, next);
+    console.log("email", email);
     const queryParams = {
       TableName: "Users",
       KeyConditionExpression: "email = :email AND acc_type = :acc_type",
@@ -28,6 +29,11 @@ export const hasActivePlan: express.RequestHandler = async (
     }
 
     const expiresIn = data.Items[0].expiresIn;
+    console.log("expiresIn", expiresIn);
+
+    if (!expiresIn) {
+      return next(new AppError("Not Found", 404, "User plan not found", true));
+    }
 
     if (CURRENTDATE > expiresIn) {
       return next(new AppError("Expired", 403, "User plan has expired", true));

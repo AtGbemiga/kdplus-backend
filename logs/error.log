@@ -121,3 +121,59 @@
 2024-10-10T21:29:48.887Z [error]: Internal server error: jwt malformed Please try again later
 2024-10-10T21:29:49.281Z [error]: Internal server error: jwt malformed Please try again later
 2024-10-10T21:31:42.658Z [error]: Internal server error: jwt malformed Please try again later
+2024-10-12T01:51:48.375Z [error]: Internal server error: jwt malformed Please try again later
+2024-10-12T01:57:21.619Z [error]: Internal server error: No token provided Please try again later
+2024-10-12T01:58:38.001Z [error]: Internal server error: No token provided Please try again later
+2024-10-12T01:58:49.404Z [error]: Internal server error: No token provided Please try again later
+2024-10-12T02:07:07.660Z [error]: Not Found: User plan not found
+2024-10-12T02:11:30.257Z [error]: Not Found: User plan not found
+2024-10-12T02:11:38.795Z [error]: Not Found: User plan not found
+2024-10-12T02:21:38.568Z [error]: Client error: User already exists
+2024-10-12T02:23:07.474Z [error]: Not Found: User plan not found
+2024-10-12T02:26:54.818Z [error]: Not Found: User plan not found
+2024-10-12T02:27:02.626Z [error]: Not Found: User plan not found
+2024-10-12T02:27:24.712Z [error]: Internal server error: jwt malformed Please try again later
+2024-10-12T02:27:52.983Z [error]: Not Found: User plan not found
+2024-10-12T02:33:07.194Z [error]: Not Found: User plan not found
+2024-10-12T02:35:17.318Z [error]: Not Found: User plan not found
+2024-10-12T02:38:12.550Z [error]: Not Found: User plan not found
+2024-10-12T02:39:25.238Z [error]: Not Found: User plan not found
+2024-10-12T02:42:46.313Z [error]: Not Found: User plan not found
+2024-10-12T02:54:28.071Z [error]: Not Found: User plan not found
+2024-10-13T12:16:58.615Z [error]: Not Found: User plan not found
+2024-10-13T12:17:02.081Z [error]: Not Found: User plan not found
+2024-10-13T12:17:20.592Z [error]: Internal server error: jwt malformed Please try again later
+2024-10-13T12:17:48.132Z [error]: Not Found: User plan not found
+2024-10-13T12:22:09.937Z [error]: Not Found: User plan not found
+2024-10-13T12:42:11.325Z [error]: Not Found: User plan not found
+2024-10-13T12:42:16.444Z [error]: Not Found: User plan not found
+2024-10-13T12:42:20.402Z [error]: Not Found: User plan not found
+2024-10-13T12:58:16.197Z [error]: Internal server error: jwt malformed Please try again later
+2024-10-13T12:58:42.262Z [error]: Not Found: User plan not found
+2024-10-13T13:23:53.664Z [error]: Not Found: User plan not found
+2024-10-13T13:24:00.453Z [error]: Not Found: User plan not found
+2024-10-13T13:24:19.583Z [error]: Not Found: User plan not found
+2024-10-13T13:25:04.962Z [error]: Not Found: User plan not found
+2024-10-13T13:25:08.706Z [error]: Not Found: User plan not found
+2024-10-13T13:25:47.573Z [error]: Not Found: User plan not found
+2024-10-13T13:28:39.160Z [error]: Not Found: User plan not found
+2024-10-13T13:31:47.274Z [error]: Not Found: User plan not found
+2024-10-13T13:32:44.322Z [error]: Not Found: User plan not found
+2024-10-13T13:32:50.425Z [error]: Not Found: User plan not found
+2024-10-13T13:34:22.758Z [error]: Not Found: User plan not found
+2024-10-13T13:42:35.198Z [error]: Not Found: User plan not found
+2024-10-13T13:43:01.231Z [error]: Not Found: User plan not found
+2024-10-13T13:44:02.471Z [error]: Not Found: User plan not found
+2024-10-13T13:44:34.298Z [error]: Not Found: User plan not found
+2024-10-13T13:45:41.086Z [error]: Not Found: User plan not found
+2024-10-13T13:51:05.377Z [error]: Not Found: User plan not found
+2024-10-13T14:03:55.743Z [error]: Not Found: User plan not found
+2024-10-13T14:04:04.573Z [error]: Not Found: User plan not found
+2024-10-13T14:05:34.565Z [error]: Not Found: User plan not found
+2024-10-13T14:07:18.828Z [error]: Internal server error: The product prod_QziJRbLsvjAtEw is marked as inactive, and thus no new subscriptions can be create to any plans of this product. You provided the plan price_1Q7itBEkS7lEmAemxUF6wdtG. Please try again later
+2024-10-13T14:17:10.756Z [error]: Not Found: User plan not found
+2024-10-13T14:17:38.715Z [error]: Not Found: User plan not found
+2024-10-13T14:18:04.763Z [error]: Internal server error: The product prod_QziJRbLsvjAtEw is marked as inactive, and thus no new subscriptions can be create to any plans of this product. You provided the plan price_1Q7itBEkS7lEmAemxUF6wdtG. Please try again later
+2024-10-13T14:19:34.952Z [error]: Not Found: User plan not found
+2024-10-13T14:19:42.173Z [error]: Not Found: User plan not found
+2024-10-13T14:23:22.009Z [error]: Not Found: User plan not found
