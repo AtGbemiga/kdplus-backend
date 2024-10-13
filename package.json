@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "ts-node app.ts",
-    "dev": "cross-env NODE_ENV=development nodemon --exec ts-node index.ts",
-    "build": "tsc"
+    "dev": "cross-env NODE_ENV=development nodemon --exec ts-node index.ts"
   },
   "keywords": [],
   "author": "",
